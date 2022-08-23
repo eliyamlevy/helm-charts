@@ -1,0 +1,9 @@
+annotations:
+  catalog.cattle.io/hidden: "true"
+  catalog.cattle.io/os: linux
+apiVersion: v1
+appVersion: "1.16.0"
+description: A test Helm chart for Kubernetes
+name: test-chart
+type: application
+version: 0.1.0
