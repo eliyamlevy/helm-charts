@@ -34,6 +34,10 @@ spec:
             - name: http
               containerPort: 80
               protocol: TCP
+          volumeMounts:
+          - mountPath: /etc/nginx # mount nginx-conf volumn to /etc/nginx
+            readOnly: true
+            name: nginx-conf
           # livenessProbe:
           #   httpGet:
           #     path: /
@@ -56,3 +60,10 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      volumes:
+        - name: nginx-conf
+          configMap:
+            name: nginx-conf # place ConfigMap `nginx-conf` on /etc/nginx
+            items:
+              - key: nginx.conf
+                path: nginx.conf
