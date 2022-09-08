@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: {YOUR_DOCKERHUB_REPO_HERE}/plugin-server
+  repository: eliyamlevy/plugin-server
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "v0"
@@ -46,7 +46,7 @@ global:
     tag: v1.20.2
     pullPolicy: IfNotPresent
   rbac:
-    ## Create RBAC resources for ServiceAccounts and users 
+    ## Create RBAC resources for ServiceAccounts and users
     ##
     enabled: false
     # create: true
