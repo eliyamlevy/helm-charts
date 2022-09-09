@@ -24,6 +24,14 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      nodeSelector: {{ include "linux-node-selector" . | nindent 8 }}
+{{- if .Values.nodeSelector }}
+{{ toYaml .Values.nodeSelector | indent 8 }}
+{{- end }}
+      tolerations: {{ include "linux-node-tolerations" . | nindent 8 }}
+{{- if .Values.tolerations }}
+{{ toYaml .Values.tolerations | indent 8 }}
+{{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -47,17 +55,8 @@ spec:
           #     path: /
           #     port: http
           resources:
-            {{- toYaml .Values.pluginServer.resources | nindent 12 }}
-      {{- with .Values.pluginServer.nodeSelector }}
-      nodeSelector:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
       {{- with .Values.pluginServer.affinity }}
       affinity:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.pluginServer.tolerations }}
-      tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       volumes:

@@ -4,7 +4,7 @@ annotations:
   catalog.cattle.io/namespace: plugin-server # Must prefix with cattle- and suffix with -system=
   catalog.cattle.io/ui-component: plugins # This is added for custom UI deployment of a chart
   catalog.cattle.io/os: linux
-  catalog.cattle.io/permits-os: linux
+  catalog.cattle.io/permits-os: linux, windows
   # catalog.cattle.io/rancher-version: '>= 2.7.0-0 < 2.8.0-0'
   catalog.cattle.io/kube-version: '>= 1.16.0-0 < 1.25.0-0'
 apiVersion: v1
